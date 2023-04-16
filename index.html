@@ -10,7 +10,6 @@
     <div class="page">
         <header class="header">
             <img src="images/header-logo.svg" alt='Надпись "Mesto Russia"' class="header__logo">
-            <div class="header__line"></div>
         </header>
         <main class="content">
             <section class="profile">
@@ -22,9 +21,83 @@
                 </div>
                 <button class="profile__add-button"><img src="images/add-button-plus.svg" alt="" class="profile__add-button-icon"></button>
             </section>
-            <section class="elements"></section>
+            <section class="card-elements">
+                <ul class="card-elements__item-grid">
+                    <li class="card-elements__item">
+                        <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="" class="card-elements__item-image">
+                        <div class="card-elements__item-textarea">
+                            <p class="card-elements__item-text">Карачаевск</p>
+                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                        </div>
+                    </li>
+                    <li class="card-elements__item">
+                        <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="" class="card-elements__item-image">
+                        <div class="card-elements__item-textarea">
+                            <p class="card-elements__item-text">Гора Эльбрус</p>
+                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                        </div>
+                    </li>
+                    <li class="card-elements__item">
+                        <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="" class="card-elements__item-image">
+                        <div class="card-elements__item-textarea">
+                            <p class="card-elements__item-text">Домбай</p>
+                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                        </div>
+                    </li>
+                    <li class="card-elements__item">
+                        <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="" class="card-elements__item-image">
+                        <div class="card-elements__item-textarea">
+                            <p class="card-elements__item-text">Гора Эльбрус</p>
+                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                        </div>
+                    </li>
+                    <li class="card-elements__item">
+                        <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="" class="card-elements__item-image">
+                        <div class="card-elements__item-textarea">
+                            <p class="card-elements__item-text">Домбай</p>
+                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                        </div>
+                    </li>
+                    <li class="card-elements__item">
+                        <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="" class="card-elements__item-image">
+                        <div class="card-elements__item-textarea">
+                            <p class="card-elements__item-text">Карачаево-Черкесия</p>
+                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </main>
-        <footer class="footer"></footer>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2023 Дыбов Никита</p>
+        </footer>
+<!--        <div class="hystmodal" id="myModal" aria-hidden="true" >-->
+<!--            <div class="hystmodal__wrap">-->
+<!--                <div class="hystmodal__window" role="dialog" aria-modal="true" >-->
+<!--                    <button data-hystclose class="hystmodal__close">Close</button>-->
+<!--                    <h1>Заголовок модального окна</h1>-->
+<!--                    <p>Текст модального окна ...</p>-->
+<!--                    <img src="img/photo.jpg" alt="Изображение" width="400" />-->
+<!--                    <p>Ещё текст модального окна ...</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="popup">
+            <div class="popup__container">
+                <button class="popup__close-button"><img src="images/close-cross-icon.svg" alt="" class="modal__close-button-icon"></button>
+                <div class="popup__window">
+                    <div class="popup__content">
+                        <h2 class="popup__header-text">Редактировать профиль</h2>
+                        <form class="popup__form">
+                            <input type="text" class="popup__form-input" placeholder="Имя" required>
+                            <input type="text" class="popup__form-input" placeholder="О себе" required>
+                            <input type="submit" class="popup__form-submit" value="Сохранить">
+
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
