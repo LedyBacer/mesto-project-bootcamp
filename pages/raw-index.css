@@ -293,12 +293,12 @@
 }
 
 @media screen and (max-width: 918px) {
-    .header__logo {
-        margin: 0 19px 0;
+    .header {
+        margin: 45px 19px 0;
     }
-
-    .profile {
-        margin: 40px 19px 0;
+    
+    .content {
+        margin: 0 19px;
     }
 
     .footer {
@@ -319,7 +319,7 @@
 
     .profile {
         display: flex;
-        margin: 42px 19px 0;
+        margin-top: 42px;
         flex-flow: column;
     }
 
@@ -367,7 +367,7 @@
     }
 
     .card-elements {
-        margin: 36px 19px 0;
+        margin-top: 36px;
     }
 
     .footer {
