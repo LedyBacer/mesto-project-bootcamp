@@ -1,0 +1,6 @@
+.card-elements__item-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+}
