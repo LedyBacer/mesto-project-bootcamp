@@ -4,7 +4,7 @@
   "description": "### Обзор",
   "main": "index.js",
   "scripts": {
-    "auto-bem": "./node_modules/.bin/bemify ./pages/raw-index.css",
+    "auto-bem": "./node_modules/.bin/bemify ./pages/rawIndex.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
