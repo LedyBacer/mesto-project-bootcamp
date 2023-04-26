@@ -1,9 +1,0 @@
-.card-elements__item-like {
-    width: 22px;
-    height: 19px;
-    transition: opacity 160ms;
-    cursor: pointer;
-}
-.card-elements__item-like:hover {
-    opacity: 0.5;
-}

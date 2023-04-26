@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <link rel="stylesheet" href="pages/index.css">
+    <link rel="stylesheet" href="pages/rawIndex.css">
 </head>
 <body class="root">
     <div class="page">
@@ -17,54 +17,54 @@
                 <div class="profile__info">
                     <div class="profile__name-with-button">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button" type="button"><img src="images/edit-button.svg" alt="" class="profile__edit-button-icon"></button>
+                        <button class="profile__edit-button" type="button"></button>
                     </div>
                     <p class="profile__description">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button" type="button"><img src="images/add-button-plus.svg" alt="" class="profile__add-button-icon"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="card-elements" aria-label="Картинки с описанием">
                 <ul class="card-elements__item-grid">
                     <li class="card-elements__item">
-                        <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Пользовательское фото" class="card-elements__item-image">
+                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1088404-unsplash.jpg');"></div>
                         <div class="card-elements__item-textarea">
-                            <p class="card-elements__item-text">Карачаевск</p>
-                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                            <h2 class="card-elements__item-text">Карачаевск</h2>
+                            <button class="card-elements__item-like" type="button"></button>
                         </div>
                     </li>
                     <li class="card-elements__item">
-                        <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Пользовательское фото" class="card-elements__item-image">
+                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1404681-unsplash.jpg');"></div>
                         <div class="card-elements__item-textarea">
-                            <p class="card-elements__item-text">Гора Эльбрус</p>
-                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                            <h2 class="card-elements__item-text">Гора Эльбрус</h2>
+                            <button class="card-elements__item-like" type="button"></button>
                         </div>
                     </li>
                     <li class="card-elements__item">
-                        <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Пользовательское фото" class="card-elements__item-image">
+                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1556355-unsplash.jpg');"></div>
                         <div class="card-elements__item-textarea">
-                            <p class="card-elements__item-text">Домбай</p>
-                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                            <h2 class="card-elements__item-text">Домбай</h2>
+                            <button class="card-elements__item-like" type="button"></button>
                         </div>
                     </li>
                     <li class="card-elements__item">
-                        <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Пользовательское фото" class="card-elements__item-image">
+                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1404681-unsplash.jpg');"></div>
                         <div class="card-elements__item-textarea">
-                            <p class="card-elements__item-text">Гора Эльбрус</p>
-                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                            <h2 class="card-elements__item-text">Гора Эльбрус</h2>
+                            <button class="card-elements__item-like" type="button"></button>
                         </div>
                     </li>
                     <li class="card-elements__item">
-                        <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Пользовательское фото" class="card-elements__item-image">
+                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1556355-unsplash.jpg');"></div>
                         <div class="card-elements__item-textarea">
-                            <p class="card-elements__item-text">Домбай</p>
-                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                            <h2 class="card-elements__item-text">Домбай</h2>
+                            <button class="card-elements__item-like" type="button"></button>
                         </div>
                     </li>
                     <li class="card-elements__item">
-                        <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Пользовательское фото" class="card-elements__item-image">
+                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1088404-unsplash.jpg');"></div>
                         <div class="card-elements__item-textarea">
-                            <p class="card-elements__item-text">Карачаево-Черкесия</p>
-                            <img src="images/like.svg" alt="" class="card-elements__item-like">
+                            <h2 class="card-elements__item-text">Карачаево-Черкесия</h2>
+                            <button class="card-elements__item-like" type="button"></button>
                         </div>
                     </li>
                 </ul>
@@ -75,16 +75,14 @@
         </footer>
         <div class="popup">
             <div class="popup__container">
-                <button class="popup__close-button" type="button"><img src="images/close-cross-icon.svg" alt="" class="popup__close-button-icon"></button>
+                <button class="popup__close-button" type="button"></button>
                 <div class="popup__window">
-                    <div class="popup__content">
-                        <h2 class="popup__header-text">Редактировать профиль</h2>
-                        <form class="popup__form">
-                            <input type="text" class="popup__form-input" placeholder="Имя" required>
-                            <input type="text" class="popup__form-input" placeholder="О себе" required>
-                            <input type="submit" class="popup__form-submit" value="Сохранить">
+                    <h2 class="popup__header-text">Редактировать профиль</h2>
+                    <form class="popup__form" method="post" name="profile-edit">
+                        <input type="text" class="popup__form-input" placeholder="Имя" name="name" id="form-name" required>
+                        <input type="text" class="popup__form-input" placeholder="О себе" name="about" id="form-about" required>
+                        <input type="submit" class="popup__form-submit" value="Сохранить">
                     </form>
-                    </div>
                 </div>
             </div>
         </div>
