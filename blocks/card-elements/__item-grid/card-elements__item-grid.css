@@ -1,0 +1,11 @@
+.card-elements__item-grid {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    grid-template: repeat(auto-fill, minmax(361px, 1fr)) / repeat(auto-fill, minmax(282px, 1fr));
+    grid-auto-columns: minmax(282px, 1fr);
+    grid-auto-rows: minmax(361px, 1fr);
+    grid-gap: 20.4px 17px;
+    justify-content: center;
+}

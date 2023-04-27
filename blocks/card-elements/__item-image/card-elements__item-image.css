@@ -1,0 +1,15 @@
+.card-elements__item-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+.card-elements__item-image:before {
+    content: '';
+    display: block;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,27 @@
+.popup__close-button {
+    width: 33px;
+    aspect-ratio: 1/1;
+    border: none;
+    margin-left: auto;
+    transition: opacity 160ms;
+    cursor: pointer;
+    position: relative;
+    left: 40px;
+    top: -8px;
+    padding: 0;
+    background-image: url('../../../images/close-cross-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+.popup__close-button:hover {
+    opacity: 0.6;
+}
+@media screen and (max-width: 550px) {
+    .popup__close-button {
+            width: 20px;
+            position: static;
+            margin: 0 0 16px auto;
+            background-size: 20px;
+        }
+}
