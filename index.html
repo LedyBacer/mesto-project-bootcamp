@@ -24,61 +24,18 @@
                 <button class="profile__add-button" type="button"></button>
             </section>
             <section class="card-elements" aria-label="Картинки с описанием">
-                <ul class="card-elements__item-grid">
-                    <li class="card-elements__item">
-                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1088404-unsplash.jpg');"></div>
-                        <div class="card-elements__item-textarea">
-                            <h2 class="card-elements__item-text">Карачаевск</h2>
-                            <button class="card-elements__item-like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="card-elements__item">
-                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1404681-unsplash.jpg');"></div>
-                        <div class="card-elements__item-textarea">
-                            <h2 class="card-elements__item-text">Гора Эльбрус</h2>
-                            <button class="card-elements__item-like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="card-elements__item">
-                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1556355-unsplash.jpg');"></div>
-                        <div class="card-elements__item-textarea">
-                            <h2 class="card-elements__item-text">Домбай</h2>
-                            <button class="card-elements__item-like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="card-elements__item">
-                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1404681-unsplash.jpg');"></div>
-                        <div class="card-elements__item-textarea">
-                            <h2 class="card-elements__item-text">Гора Эльбрус</h2>
-                            <button class="card-elements__item-like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="card-elements__item">
-                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1556355-unsplash.jpg');"></div>
-                        <div class="card-elements__item-textarea">
-                            <h2 class="card-elements__item-text">Домбай</h2>
-                            <button class="card-elements__item-like" type="button"></button>
-                        </div>
-                    </li>
-                    <li class="card-elements__item">
-                        <div class="card-elements__item-image" style="background-image:url('images/kirill-pershin-1088404-unsplash.jpg');"></div>
-                        <div class="card-elements__item-textarea">
-                            <h2 class="card-elements__item-text">Карачаево-Черкесия</h2>
-                            <button class="card-elements__item-like" type="button"></button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="card-elements__item-grid"></ul>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2023 Дыбов Никита</p>
         </footer>
-        <div class="popup">
+        <div class="popup" id="edit-popup">
             <div class="popup__container">
                 <button class="popup__close-button" type="button"></button>
                 <div class="popup__window">
                     <h2 class="popup__header-text">Редактировать профиль</h2>
-                    <form class="popup__form" method="post" name="profile-edit">
+                    <form class="popup__form" method="post" name="profile-form" id="profile-form">
                         <input type="text" class="popup__form-input" placeholder="Имя" name="name" id="form-name" required>
                         <input type="text" class="popup__form-input" placeholder="О себе" name="about" id="form-about" required>
                         <input type="submit" class="popup__form-submit" value="Сохранить">
@@ -86,6 +43,37 @@
                 </div>
             </div>
         </div>
+        <div class="popup" id="add-popup">
+            <div class="popup__container">
+                <button class="popup__close-button" type="button"></button>
+                <div class="popup__window">
+                    <h2 class="popup__header-text">Новое место</h2>
+                    <form class="popup__form" method="post" name="profile-edit" id="mesto-form">
+                        <input type="text" class="popup__form-input" placeholder="Название" name="description" id="form-mesto-description" required>
+                        <input type="url" class="popup__form-input" placeholder="Ссылка на картинку" name="url" id="form-mesto-url" required>
+                        <input type="submit" class="popup__form-submit" value="Создать">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="popup" id="image-popup">
+            <div class="popup__container popup__container_img">
+                <button class="popup__close-button" type="button"></button>
+                <img class="popup__image" src="" alt="">
+                <h2 class="popup__bottom-text"></h2>
+            </div>
+        </div>
     </div>
 </body>
+<template id="card-template">
+    <li class="card-elements__item">
+        <button class="card-elements__item-trash" type="button"></button>
+        <div class="card-elements__item-image"></div>
+        <div class="card-elements__item-textarea">
+            <h2 class="card-elements__item-text"></h2>
+            <button class="card-elements__item-like" type="button"></button>
+        </div>
+    </li>
+</template>
+<script src="script.js"></script>
 </html>
