@@ -13,3 +13,12 @@
     align-self: end;
     margin: 20px;
 }
+.card-elements__item-trash:hover {
+    opacity: 0.5;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .card-elements__item-trash:hover {
+        opacity: 1;
+    }
+}

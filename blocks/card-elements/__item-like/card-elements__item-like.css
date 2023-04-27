@@ -21,3 +21,9 @@
 .card-elements__item-like:hover {
     opacity: 0.5;
 }
+
+@media (hover: none) and (pointer: coarse) {
+    .card-elements__item-like:hover {
+        opacity: 1;
+    }
+}
