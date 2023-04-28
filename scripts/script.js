@@ -1,6 +1,5 @@
 const page = document.querySelector('.page');
 
-const containerCards = page.querySelector('.card-elements__item-grid');
 const initialCards = [
     {
         name: 'Архыз',
@@ -27,20 +26,26 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+const cardsContainer = page.querySelector('.card-elements__item-grid');
+const cardTemplate = document.getElementById('card-template').content;
+
 const profileContainer = page.querySelector('.profile')
 const userName = profileContainer.querySelector('.profile__name');
 const userAbout = profileContainer.querySelector('.profile__description');
-const openAddCardButton = profileContainer.querySelector('.profile__add-button');
-const openEditProfileButton = profileContainer.querySelector('.profile__edit-button');
+const addCardOpenPopupButton = profileContainer.querySelector('.profile__add-button');
+const editProfileOpenPopupButton = profileContainer.querySelector('.profile__edit-button');
+
 const addCardPopup = document.getElementById('add-popup');
-const editProfilePopup = document.getElementById('edit-popup');
-const fullscreenImagePopup = document.getElementById('image-popup');
-const closeButtons = page.querySelectorAll('.popup__close-button');
-const editProfileForm = document.forms["profile-form"];
 const addCardForm = document.forms["mesto-form"];
-const fullscreenImagePopupBottomText = fullscreenImagePopup.querySelector('.popup__bottom-text');
+
+const editProfilePopup = document.getElementById('edit-popup');
+const editProfileForm = document.forms["profile-form"];
+
+const fullscreenImagePopup = document.getElementById('image-popup');
 const fullscreenImagePopupImage = fullscreenImagePopup.querySelector('.popup__image');
-const cardTemplate = document.getElementById('card-template').content;
+const fullscreenImagePopupBottomText = fullscreenImagePopup.querySelector('.popup__bottom-text');
+
+const closeButtons = page.querySelectorAll('.popup__close-button');
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -56,8 +61,8 @@ function initEditProfileForm() {
 
     editProfileForm.addEventListener("submit", (evt) => {
         evt.preventDefault();
-        userName.textContent = editProfileForm.elements["form-name"].value;
-        userAbout.textContent = editProfileForm.elements["form-about"].value;
+        userName.textContent = evt.target.elements["form-name"].value;
+        userAbout.textContent = evt.target.elements["form-about"].value;
         closePopup(editProfilePopup);
     });
 }
@@ -66,10 +71,10 @@ function initAddCardForm(onSubmit) {
     addCardForm.addEventListener("submit", (evt) => {
         evt.preventDefault();
         onSubmit({
-            name: addCardForm.elements["description"].value,
-            link: addCardForm.elements["url"].value
+            name: evt.target.elements["description"].value,
+            link: evt.target.elements["url"].value
         });
-        addCardForm.reset();
+        evt.target.reset();
     });
 }
 
@@ -85,19 +90,15 @@ function createCard(descriptionValue, imageUrlValue) {
     cardElement.querySelector('.card-elements__item-text').textContent = descriptionValue;
     cardElement.querySelector('.card-elements__item-image').setAttribute("style", `background-image:url('${imageUrlValue}')`);
 
-    const buttonLike = cardElement.querySelector('.card-elements__item-like');
-    buttonLike.addEventListener('click', function (evt) {
+    cardElement.querySelector('.card-elements__item-like').addEventListener('click', (evt) => {
         evt.target.classList.toggle('card-elements__item-like_active');
     });
 
-    const buttonTrash = cardElement.querySelector('.card-elements__item-trash');
-    buttonTrash.addEventListener('click', function (evt) {
-        const card = evt.target.closest('.card-elements__item')
-        card.remove();
+    cardElement.querySelector('.card-elements__item-trash').addEventListener('click', (evt) => {
+        evt.target.closest('.card-elements__item').remove();
     });
 
-    const imageFullscreen = cardElement.querySelector('.card-elements__item-image');
-    imageFullscreen.addEventListener('click', function (evt) {
+    cardElement.querySelector('.card-elements__item-image').addEventListener('click', (evt) => {
         handleFullscreenImagePopup(evt.target.getAttribute("style").slice(22, -2), evt.target.nextElementSibling.textContent);
         openPopup(fullscreenImagePopup);
     });
@@ -105,30 +106,33 @@ function createCard(descriptionValue, imageUrlValue) {
     return cardElement
 }
 
-function addCard(descriptionValue, imageUrlValue, containerCards, end) {
+function addCard(descriptionValue, imageUrlValue, cardsContainer, position) {
     const cardElement = createCard(descriptionValue, imageUrlValue);
-    end === "end"
-        ? containerCards.append(cardElement)
-        : containerCards.prepend(cardElement);
+    position === "end"
+        ? cardsContainer.append(cardElement)
+        : cardsContainer.prepend(cardElement);
 }
 
-initialCards.forEach((card) => addCard(card.name, card.link, containerCards, 'end'));
-initEditProfileForm();
-initAddCardForm((data) => {
-    addCard(data.name, data.link, containerCards);
-    closePopup(addCardPopup);
-})
+function initAll() {
+    initialCards.forEach((card) => addCard(card.name, card.link, cardsContainer, 'end'));
+    initEditProfileForm();
+    initAddCardForm((data) => {
+        addCard(data.name, data.link, cardsContainer);
+        closePopup(addCardPopup);
+    })
 
-closeButtons.forEach((button) => {
-    const popup = button.closest('.popup');
-    button.addEventListener('click', () => closePopup(popup));
-    popup.addEventListener("mousedown", (evt) => {if (evt.target === popup) closePopup(popup)});
-});
+    closeButtons.forEach((button) => {
+        const popup = button.closest('.popup');
+        button.addEventListener('click', () => closePopup(popup));
+        popup.addEventListener("mousedown", (evt) => {if (evt.target === popup) closePopup(popup)});
+    });
 
-openAddCardButton.addEventListener('click', () => {
-    openPopup(addCardPopup);
-});
-openEditProfileButton.addEventListener('click', () => {
-    openPopup(editProfilePopup);
-});
+    addCardOpenPopupButton.addEventListener('click', () => {
+        openPopup(addCardPopup);
+    });
+    editProfileOpenPopupButton.addEventListener('click', () => {
+        openPopup(editProfilePopup);
+    });
+}
 
+initAll();
