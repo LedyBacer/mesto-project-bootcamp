@@ -1,12 +1,17 @@
 {
   "name": "mesto-project-bootcamp",
   "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/LedyBacer/mesto-project-bootcamp.git"
+  },
   "description": "### Обзор",
   "main": "index.js",
   "scripts": {
     "auto-bem": "./node_modules/.bin/bemify src/styles/rawIndex.css",
     "build": "webpack --mode production",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,7 @@
     "css-loader": "^6.7.3",
     "css-to-bem-file-structure": "^0.0.5",
     "cssnano": "^6.0.1",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss-loader": "^7.3.0",
