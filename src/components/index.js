@@ -1,3 +1,5 @@
+import '../styles/index.css';
+
 const page = document.querySelector('.page');
 
 const initialCards = [
