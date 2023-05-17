@@ -34,10 +34,16 @@
                 <button class="popup__close-button" type="button"></button>
                 <div class="popup__window">
                     <h2 class="popup__header-text">Редактировать профиль</h2>
-                    <form class="popup__form" method="post" name="profile-form" id="profile-form">
-                        <input type="text" class="popup__form-input" placeholder="Имя" name="name" id="form-name" required>
-                        <input type="text" class="popup__form-input" placeholder="О себе" name="about" id="form-about" required>
-                        <input type="submit" class="popup__form-submit" value="Сохранить">
+                    <form class="popup__form" method="post" name="profile-form" id="profile-form" novalidate>
+                        <label class="popup__form-field">
+                            <input type="text" class="popup__form-input" placeholder="Имя" name="name" id="form-name" required minlength="2" maxlength="40">
+                            <span class="popup__input-error form-name-error"></span>
+                        </label>
+                        <label class="popup__form-field">
+                            <input type="text" class="popup__form-input" placeholder="О себе" name="about" id="form-about" required minlength="2" maxlength="200">
+                            <span class="popup__input-error form-about-error"></span>
+                        </label>
+                        <input type="submit" class="popup__form-submit" value="Сохранить" name="submit">
                     </form>
                 </div>
             </div>
@@ -47,10 +53,16 @@
                 <button class="popup__close-button" type="button"></button>
                 <div class="popup__window">
                     <h2 class="popup__header-text">Новое место</h2>
-                    <form class="popup__form" method="post" name="profile-edit" id="mesto-form">
-                        <input type="text" class="popup__form-input" placeholder="Название" name="description" id="form-mesto-description" required>
-                        <input type="url" class="popup__form-input" placeholder="Ссылка на картинку" name="url" id="form-mesto-url" required>
-                        <input type="submit" class="popup__form-submit" value="Создать">
+                    <form class="popup__form" method="post" name="profile-edit" id="mesto-form" novalidate>
+                        <label class="popup__form-field">
+                            <input type="text" class="popup__form-input" placeholder="Название" name="description" id="form-mesto-description" required minlength="2" maxlength="30">
+                            <span class="popup__input-error form-mesto-description-error"></span>
+                        </label>
+                        <label class="popup__form-field">
+                            <input type="url" class="popup__form-input" placeholder="Ссылка на картинку" name="url" id="form-mesto-url" required>
+                            <span class="popup__input-error form-mesto-url-error"></span>
+                        </label>
+                        <input type="submit" class="popup__form-submit" value="Создать" name="submit">
                     </form>
                 </div>
             </div>
