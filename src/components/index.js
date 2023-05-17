@@ -12,7 +12,6 @@ const addCardOpenPopupButton = profileContainer.querySelector('.profile__add-but
 const editProfileOpenPopupButton = profileContainer.querySelector('.profile__edit-button');
 const addCardPopup = document.getElementById('add-popup');
 const closeButtons = page.querySelectorAll('.popup__close-button');
-const allPopup = page.querySelectorAll('.popup');
 
 //export for modal.js
 export const userName = profileContainer.querySelector('.profile__name');
