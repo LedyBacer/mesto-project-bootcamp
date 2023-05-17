@@ -49,12 +49,6 @@ closeButtons.forEach((button) => {
     popup.addEventListener("mousedown", (evt) => {if (evt.target === popup) closePopup(popup)});
 });
 
-// window.addEventListener("keydown", evt => {
-//     if (evt.key === 'Escape') {
-//         allPopup.forEach( (el) => closePopup(el));
-//     }
-// });
-
 addCardOpenPopupButton.addEventListener('click', () => {
     openPopup(addCardPopup);
 });

@@ -3,11 +3,12 @@ import {cardTemplate, fullscreenImagePopup, fullscreenImagePopupBottomText, full
 
 function createCard(descriptionValue, imageUrlValue) {
     const cardElement = cardTemplate.querySelector('.card-elements__item').cloneNode(true);
+    const cardElementImage = cardElement.querySelector('.card-elements__item-image');
 
     cardElement.querySelector('.card-elements__item-text').textContent = descriptionValue;
     cardElement.querySelector('.card-elements__item-image').setAttribute("style", `background-image:url('${imageUrlValue}')`);
 
-    cardElement.querySelector('.card-elements__item-like').addEventListener('click', (evt) => {
+    cardElementImage.addEventListener('click', (evt) => {
         evt.target.classList.toggle('card-elements__item-like_active');
     });
 
@@ -15,8 +16,8 @@ function createCard(descriptionValue, imageUrlValue) {
         evt.target.closest('.card-elements__item').remove();
     });
 
-    cardElement.querySelector('.card-elements__item-image').addEventListener('click', (evt) => {
-        handleFullscreenImagePopup(evt.target.getAttribute("style").slice(22, -2), evt.target.nextElementSibling.textContent);
+    cardElementImage.addEventListener('click', () => {
+        handleFullscreenImagePopup(imageUrlValue, descriptionValue);
         openPopup(fullscreenImagePopup);
     });
 

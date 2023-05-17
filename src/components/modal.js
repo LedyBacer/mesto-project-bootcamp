@@ -1,5 +1,5 @@
-import {closePopup, disableButton} from "./utils";
-import {addCardForm, editProfileForm, editProfilePopup, inactiveButtonClass, userAbout, userName} from "./index";
+import {closePopup} from "./utils";
+import {addCardForm, editProfileForm, editProfilePopup, userAbout, userName} from "./index";
 
 export function initAddCardForm(onSubmit) {
     addCardForm.addEventListener("submit", (evt) => {
@@ -9,7 +9,6 @@ export function initAddCardForm(onSubmit) {
             link: evt.target.elements["url"].value
         });
         evt.target.reset();
-        disableButton(evt.target.elements["submit"], inactiveButtonClass)
     });
 }
 
