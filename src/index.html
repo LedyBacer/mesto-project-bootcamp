@@ -12,13 +12,17 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватарка профиля">
+                <button class="profile__avatar" type="button">
+                    <span class="profile__avatar-overlay">
+                        <img class="profile__avatar-icon" src="<%=require('./images/edit-button.svg')%>" alt='Изменить аватарку"'>
+                    </span>
+                </button>
                 <div class="profile__info">
                     <div class="profile__name-with-button">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name">Загрузка..</h1>
                         <button class="profile__edit-button" type="button"></button>
                     </div>
-                    <p class="profile__description">Исследователь океана</p>
+                    <p class="profile__description">Загрузка..</p>
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
@@ -72,6 +76,21 @@
                 <button class="popup__close-button" type="button"></button>
                 <img class="popup__image" src="" alt="">
                 <h2 class="popup__bottom-text"></h2>
+            </div>
+        </div>
+        <div class="popup" id="avatar-popup">
+            <div class="popup__container">
+                <button class="popup__close-button" type="button"></button>
+                <div class="popup__window">
+                    <h2 class="popup__header-text">Обновить аватар</h2>
+                    <form class="popup__form" method="post" name="avatar-form" id="avatar-form" novalidate>
+                        <label class="popup__form-field">
+                            <input type="url" class="popup__form-input" placeholder="Ссылка" name="form-avatar-url" id="form-avatar-url" required>
+                            <span class="popup__input-error form-avatar-url-error"></span>
+                        </label>
+                        <input type="submit" class="popup__form-submit" value="Сохранить" name="submit">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
