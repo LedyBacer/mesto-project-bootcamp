@@ -1,0 +1,5 @@
+.card-elements__item-like-area {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}

@@ -23,6 +23,8 @@
 @import url(../blocks/card-elements/__item-like/card-elements__item-like.css);
 @import url(../blocks/card-elements/__item-like/_active/card-elements__item-like_active.css);
 @import url(../blocks/card-elements/__item-trash/card-elements__item-trash.css);
+@import url(../blocks/card-elements/__item-like-area/card-elements__item-like-area.css);
+@import url(../blocks/card-elements/__item-like-count/card-elements__item-like-count.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);

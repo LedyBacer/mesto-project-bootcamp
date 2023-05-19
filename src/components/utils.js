@@ -24,3 +24,23 @@ export function enableButton(buttonElement, inactiveButtonClass) {
     buttonElement.classList.remove(inactiveButtonClass);
     buttonElement.removeAttribute('disabled', '');
 }
+
+export function checkStatus(res) {
+    if (res.ok) {
+        return res.json();
+    }
+
+    return Promise.reject(`Ошибка: ${res.status}`);
+}
+
+export function showErr(err) {
+    console.log(err);
+}
+
+export function renderLoading(isLoading, btn, def) {
+    if (isLoading) {
+        btn.setAttribute("value", 'Сохранение...');
+    } else {
+        btn.setAttribute("value", `${def}`);
+    }
+}
