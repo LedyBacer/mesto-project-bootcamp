@@ -5,9 +5,13 @@ import {addLike, delCard, delLike} from "./api";
 function handleLike(cardElement, myId, likes, cardId) {
     cardElement.querySelector('.card-elements__item-like').addEventListener('click', (evt) => {
         if (evt.target.classList.contains('card-elements__item-like_active')) {
-            delLike(cardId).then((r) => getLikes(cardElement, myId, r.likes))
+            delLike(cardId)
+                .then((r) => getLikes(cardElement, myId, r.likes))
+                .catch((err) => console.error(`Ошибка: ${err}`))
         } else {
-            addLike(cardId).then((r) => getLikes(cardElement, myId, r.likes))
+            addLike(cardId)
+                .then((r) => getLikes(cardElement, myId, r.likes))
+                .catch((err) => console.error(`Ошибка: ${err}`))
         }
     });
 }
@@ -49,7 +53,9 @@ function createCard(descriptionValue, imageUrlValue, cardOwnerId, myId, cardId, 
 
     if (cardOwnerId === myId) {
         cardElementDelBtn.addEventListener('click', (evt) => {
-            delCard(cardId).finally(evt.target.closest('.card-elements__item').remove());
+            delCard(cardId)
+                .then(() => evt.target.closest('.card-elements__item').remove())
+                .catch((err) => console.error(`Ошибка: ${err}`))
         });
     } else {
         cardElementDelBtn.setAttribute("style", 'display:none');

@@ -33,14 +33,25 @@ export function checkStatus(res) {
     return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-export function showErr(err) {
-    console.log(err);
+function renderLoading(isLoading, btn, buttonText='Сохранить', loadingText='Сохранение...') {
+    if (isLoading) {
+        btn.setAttribute("value", `${loadingText}`);
+    } else {
+        btn.setAttribute("value", `${buttonText}`);
+    }
 }
 
-export function renderLoading(isLoading, btn, def) {
-    if (isLoading) {
-        btn.setAttribute("value", 'Сохранение...');
-    } else {
-        btn.setAttribute("value", `${def}`);
-    }
+export function handleSubmit(request, evt, loadingText = "Сохранение...") {
+    evt.preventDefault();
+
+    const submitButton = evt.submitter;
+    const initialText = submitButton.getAttribute('value');
+    renderLoading(true, submitButton, initialText, loadingText);
+    request(evt)
+        .catch((err) => {
+            console.error(`Ошибка: ${err}`);
+        })
+        .finally(() => {
+            renderLoading(false, submitButton, initialText);
+        });
 }

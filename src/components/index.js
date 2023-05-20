@@ -1,9 +1,9 @@
 import '../styles/index.css';
 import {enableValidation} from "./validate";
-import {openPopup, closePopup, renderLoading} from "./utils";
+import {openPopup, closePopup, handleSubmit} from "./utils";
 import {addCard} from "./card";
 import {initAddCardForm, initEditAvatarForm, initEditProfileForm} from "./modal";
-import {getCards, getProfile, pushCard, updateProfileAvatar} from "./api";
+import {getCards, getProfile, pushCard, updateProfile, updateProfileAvatar} from "./api";
 
 const page = document.querySelector('.page');
 const profileContainer = page.querySelector('.profile')
@@ -42,45 +42,75 @@ export const fullscreenImagePopupBottomText = fullscreenImagePopup.querySelector
 
 
 
-getProfile().then(r => {
-    userName.textContent = r.name;
-    userAbout.textContent = r.about;
-    editAvatarOpenPopupButton.setAttribute("style", `background-image:url('${r.avatar}')`);
-    const myProfileId = r['_id'];
-    initCards(myProfileId);
-    initForm(myProfileId);
-})
+function initProfile(userData) {
+    userName.textContent = userData.name;
+    userAbout.textContent = userData.about;
+    editAvatarOpenPopupButton.setAttribute("style", `background-image:url('${userData.avatar}')`);
+    return userData['_id'];
+}
 
-function initCards(myProfileId) {
-    getCards().then(r => {
-        r.forEach((card) => addCard(card.name, card.link, cardsContainer, 'end', card.owner['_id'], myProfileId, card['_id'], card.likes))
-    })
+function initCards(myProfileId, cards) {
+    cards.forEach((card) => {
+        addCard(card.name, card.link, cardsContainer, 'end', card.owner['_id'], myProfileId, card['_id'], card.likes)
+    });
 }
 
 function initForm(myProfileId) {
-    initEditProfileForm();
-    initAddCardForm((data) => {
-        renderLoading(true, addCardSubmitBtn);
-        pushCard(data.name, data.link)
-            .then((r) => {
-            addCard(data.name, data.link, cardsContainer, 'start', r.owner['_id'], myProfileId, r['_id'], r.likes)})
-            .finally(() => {
-            renderLoading(false, addCardSubmitBtn, addCardSubmitValue);
-            closePopup(addCardPopup);
-        })
-    });
-    initEditAvatarForm((data) => {
-        renderLoading(true, editAvatarSubmitBtn);
-        updateProfileAvatar(data.link)
-            .then((r) => {
-            editAvatarOpenPopupButton.setAttribute("style", `background-image:url('${r.avatar}')`);})
-            .finally(() => {
-                renderLoading(false, editAvatarSubmitBtn, editAvatarSubmitValue);
-                closePopup(editAvatarPopup);
-            })
-    })
 
+    initEditProfileForm((evt) => {
+        function makeRequest(evt) {
+            return updateProfile(evt.target.elements["form-name"].value, evt.target.elements["form-about"].value)
+                .then((userData) => {
+                    userName.textContent = userData.name;
+                    userAbout.textContent = userData.about;
+
+                    closePopup(editProfilePopup);
+                })
+        }
+
+        handleSubmit(makeRequest, evt);
+    });
+
+    initAddCardForm((evt) => {
+        function makeRequest(evt) {
+           return pushCard(evt.target.elements["description"].value, evt.target.elements["url"].value)
+                .then((card) => {
+                    addCard(card.name, card.link, cardsContainer, 'start', card.owner['_id'], myProfileId, card['_id'], card.likes);
+
+                    closePopup(addCardPopup);
+                    evt.target.reset();
+                })
+        }
+
+        handleSubmit(makeRequest, evt);
+    });
+
+    initEditAvatarForm((evt) => {
+        function makeRequest(evt) {
+            return updateProfileAvatar(evt.target.elements["form-avatar-url"].value)
+                .then((userData) => {
+                    editAvatarOpenPopupButton.setAttribute("style", `background-image:url('${userData.avatar}')`);
+
+                    closePopup(editAvatarPopup);
+                    evt.target.reset();
+                })
+        }
+
+        handleSubmit(makeRequest, evt);
+    })
 }
+
+
+
+Promise.all([getProfile(), getCards()])
+    .then(([userData, cards]) => {
+        const myProfileId = initProfile(userData);
+        initCards(myProfileId, cards);
+        initForm(myProfileId);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 enableValidation({
     formSelector: '.popup__form',
