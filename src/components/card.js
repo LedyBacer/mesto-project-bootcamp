@@ -45,12 +45,6 @@ function createCard(descriptionValue, imageUrlValue, cardOwnerId, myId, cardId, 
     getLikes(cardElement, myId, likes);
     handleLike(cardElement, myId, likes, cardId);
 
-    // cardElement.querySelector('.card-elements__item-like-count').textContent = likes.length;
-
-    // cardElement.querySelector('.card-elements__item-like').addEventListener('click', (evt) => {
-    //     evt.target.classList.toggle('card-elements__item-like_active');
-    // });
-
     if (cardOwnerId === myId) {
         cardElementDelBtn.addEventListener('click', (evt) => {
             delCard(cardId)

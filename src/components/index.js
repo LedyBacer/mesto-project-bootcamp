@@ -24,23 +24,12 @@ export const addCardForm = document.forms["mesto-form"];
 export const editProfileForm = document.forms["profile-form"];
 export const editAvatarForm = document.forms["avatar-form"];
 export const editProfilePopup = document.getElementById('edit-popup');
-export const inactiveButtonClass = 'popup__form-submit_disabled';
-
-export const editProfileSubmitBtn = editProfileForm.elements.submit;
-export const editAvatarSubmitBtn = editAvatarForm.elements.submit;
-export const addCardSubmitBtn = addCardForm.elements.submit;
-export const editProfileSubmitValue = editProfileSubmitBtn.getAttribute('value');
-export const editAvatarSubmitValue = editAvatarSubmitBtn.getAttribute('value');
-export const addCardSubmitValue = addCardSubmitBtn.getAttribute('value');
 
 //export for card.js
 export const cardTemplate = document.getElementById('card-template').content;
 export const fullscreenImagePopup = document.getElementById('image-popup');
 export const fullscreenImagePopupImage = fullscreenImagePopup.querySelector('.popup__image');
 export const fullscreenImagePopupBottomText = fullscreenImagePopup.querySelector('.popup__bottom-text');
-
-
-
 
 function initProfile(userData) {
     userName.textContent = userData.name;
