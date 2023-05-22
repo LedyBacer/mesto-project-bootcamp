@@ -34,11 +34,9 @@ export function checkStatus(res) {
 }
 
 function renderLoading(isLoading, btn, buttonText='Сохранить', loadingText='Сохранение...') {
-    if (isLoading) {
-        btn.setAttribute("value", `${loadingText}`);
-    } else {
-        btn.setAttribute("value", `${buttonText}`);
-    }
+    isLoading
+        ? btn.setAttribute("value", `${loadingText}`)
+        : btn.setAttribute("value", `${buttonText}`);
 }
 
 export function handleSubmit(request, evt, loadingText = "Сохранение...") {
