@@ -8,26 +8,21 @@ const config = {
     }
 }
 
-function request(endpoint, options) {
-    return fetch(config.baseUrl + endpoint, options).then(checkStatus)
+function request(endpoint, options={}) {
+    const params = {
+        headers: config.headers,
+        ...options
+    };
+    return fetch(config.baseUrl + endpoint, params).then(checkStatus);
 }
 
-export function getCards() {
-    return request('/cards', {
-        headers: config.headers
-    })
-}
+export const getCards = () => request('/cards');
 
-export function getProfile() {
-    return request('/users/me', {
-        headers: config.headers
-    })
-}
+export const getProfile = () => request('/users/me');
 
 export function updateProfile(name, about) {
     return request('/users/me', {
         method: 'PATCH',
-        headers: config.headers,
         body: JSON.stringify({
             name,
             about
@@ -38,7 +33,6 @@ export function updateProfile(name, about) {
 export function pushCard(name, link) {
     return request('/cards', {
         method: 'POST',
-        headers: config.headers,
         body: JSON.stringify({
             name,
             link
@@ -48,29 +42,25 @@ export function pushCard(name, link) {
 
 export function delCard(cardId) {
     return request(`/cards/${cardId}`, {
-        method: 'DELETE',
-        headers: config.headers,
+        method: 'DELETE'
     })
 }
 
 export function addLike(cardId) {
     return request(`/cards/likes/${cardId}`, {
-        method: 'PUT',
-        headers: config.headers,
+        method: 'PUT'
     })
 }
 
 export function delLike(cardId) {
     return request(`/cards/likes/${cardId}`, {
-        method: 'DELETE',
-        headers: config.headers,
+        method: 'DELETE'
     })
 }
 
 export function updateProfileAvatar(avatar) {
     return request('/users/me/avatar', {
         method: 'PATCH',
-        headers: config.headers,
         body: JSON.stringify({
             avatar
         })
