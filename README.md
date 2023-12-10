@@ -1,53 +1,52 @@
-# [Проект "Mesto"](https://ledybacer.github.io/mesto-project-bootcamp/)
+# [Project: Mesto](https://ledybacer.github.io/mesto-project-bootcamp/)
 
-Учебный сайт-одностраничка с адаптивной версткой, с возможностью добавлять фото с описанием, удалять их, ставить лайки, редактировать профиль. Сайт подключается к бэку. Так же есть попапы с валидацией форм. Сделан на HTML, CSS и чистом JS с использованием NESTED BEM и Webpack.
+An educational single-page, adaptive website with the ability to add photos with descriptions, delete them, like them, and edit profiles. The site connects to a backend. There are also pop-ups with form validation. Made with HTML, CSS, and vanilla JS using NESTED BEM and Webpack.
 
 ------
 
 **Figma**
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0-1&t=0cUNn9JE4dXEwnQz-0)
+* [Link to the Figma layout](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0-1&t=0cUNn9JE4dXEwnQz-0)
 
-## Разработка
+## Development
 
-### Предварительные требования
+### Prerequisites
 
-Перед тем как начать, убедитесь, что у вас установлены следующие инструменты:
+Before starting, make sure you have the following tools installed:
 
-- git (для клонирования репозитория)
-- Node.js (для запуска проекта)
+- git (for cloning the repository)
+- Node.js (to run the project)
 
-### Установка
+### Installation
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
 ```
 git clone https://github.com/LedyBacer/mesto-project-bootcamp.git
 ```
-2. Перейдите в папку проекта:
+2. Go to the project folder::
 ```
 cd mesto-project-bootcamp
 ```
-3. Установите зависимости:
+3. Install dependencies::
 ```
 npm install
 ```
-4. Запустите проект:
+4. Run the project:
 ```
 npm start
 ```
 
-После выполнения этих шагов, ваш проект будет доступен по адресу `http://localhost:3000/` в вашем браузере.
+After completing these steps, your project will be available at `http://localhost:3000/` in your web browser.
 
-### Развёртывание
+### Deployment
 
-Чтобы развернуть проект на сервере, выполните следующие шаги:
+To deploy the project on a server, follow these steps:
 
-1. Соберите проект для продакшена:
+1. Build the project for production:
 ```
 npm run build
 ```
 
-Это создаст папку `build` с оптимизированными для продакшена файлами.
-
+This will create a `build` folder with files optimized for production.
 
 
